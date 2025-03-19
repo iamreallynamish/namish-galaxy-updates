@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import ImageDetail from "../components/ImageDetail";
+import Footer from "../components/Footer";
 
 // Sample data
 const imageData = {
@@ -11,15 +12,15 @@ const imageData = {
   tags: ["Nature", "Landscape", "Morning", "Mist"],
   date: "October 15, 2023",
   location: "Echo Valley, CA",
-  camera: "Sony A7R IV",
-  lens: "Sony FE 24-70mm f/2.8 GM",
+  software: "Adobe Photoshop, Lightroom",
+  about: "This project explores the transient moments of dawn, capturing the ephemeral quality of light as it first touches the landscape. The series examines how brief instances of natural illumination can transform ordinary scenes into extraordinary visual experiences."
 };
 
 const Index = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white font-mono">
       <Header />
       
       <main className="container mx-auto px-6 pt-24 pb-16">
@@ -50,6 +51,8 @@ const Index = () => {
           </div>
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 };

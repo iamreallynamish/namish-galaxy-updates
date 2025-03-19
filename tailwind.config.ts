@@ -106,6 +106,7 @@ export default {
 				'slide-up': 'slide-up 0.7s ease-out forwards'
 			},
 			fontFamily: {
+				mono: ['Space Mono', 'monospace'],
 				sans: ['Inter', 'sans-serif']
 			}
 		}

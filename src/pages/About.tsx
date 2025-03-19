@@ -2,10 +2,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white font-mono">
       <Header />
       
       <main className="container mx-auto px-6 pt-32 pb-16">
@@ -15,8 +16,8 @@ const About = () => {
           transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto"
         >
-          <h1 className="text-4xl font-light tracking-wide mb-8">About</h1>
-          <div className="space-y-6 text-white/80">
+          <h1 className="text-4xl font-mono font-light tracking-wide mb-8">About</h1>
+          <div className="space-y-6 text-white/80 text-base">
             <p>
               NAMISH// is a photography project dedicated to capturing the subtle 
               interplay of light, texture, and atmosphere in natural landscapes.
@@ -34,6 +35,8 @@ const About = () => {
           </div>
         </motion.div>
       </main>
+      
+      <Footer />
     </div>
   );
 };
