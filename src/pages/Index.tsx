@@ -1,12 +1,55 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Header from "../components/Header";
+import ImageDetail from "../components/ImageDetail";
+
+// Sample data
+const imageData = {
+  title: "Morning Light",
+  description: "Captured during the golden hour, this image showcases the delicate interplay between light and shadow as dawn breaks over the misty landscape.",
+  tags: ["Nature", "Landscape", "Morning", "Mist"],
+  date: "October 15, 2023",
+  location: "Echo Valley, CA",
+  camera: "Sony A7R IV",
+  lens: "Sony FE 24-70mm f/2.8 GM",
+};
 
 const Index = () => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-black text-white">
+      <Header />
+      
+      <main className="container mx-auto px-6 pt-24 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            className="relative aspect-[4/5] overflow-hidden rounded-lg"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
+            <motion.img
+              initial={{ scale: 1.1, filter: "blur(10px)" }}
+              animate={{ 
+                scale: isImageLoaded ? 1 : 1.1,
+                filter: isImageLoaded ? "blur(0px)" : "blur(10px)"
+              }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              src="https://images.unsplash.com/photo-1465189684280-6a8fa9b19a00"
+              alt="Morning Light"
+              className="w-full h-full object-cover"
+              onLoad={() => setIsImageLoaded(true)}
+            />
+          </motion.div>
+          
+          <div>
+            <ImageDetail image={imageData} />
+          </div>
+        </div>
+      </main>
     </div>
   );
 };
