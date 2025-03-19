@@ -9,8 +9,8 @@ interface ImageDetailProps {
     tags: string[];
     date: string;
     location: string;
-    software: string; // Changed from camera
-    about: string; // Added about field
+    software: string;
+    about: string;
   };
 }
 
@@ -31,14 +31,6 @@ const ImageDetail: React.FC<ImageDetailProps> = ({ image }) => {
         >
           {image.title}
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className="mt-2 text-white/70 max-w-2xl text-base font-mono"
-        >
-          {image.description}
-        </motion.p>
       </div>
 
       <motion.div
@@ -47,10 +39,13 @@ const ImageDetail: React.FC<ImageDetailProps> = ({ image }) => {
         transition={{ delay: 0.7, duration: 0.5 }}
         className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-lg p-6"
       >
-        <h3 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-4">PROJECT DETAILS</h3>
-        
         <div className="grid grid-cols-1 gap-6">
           <div>
+            <h4 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-2">About the Project</h4>
+            <p className="text-sm font-mono text-white/80 mb-6">{image.about}</p>
+            
+            <h3 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-4">PROJECT DETAILS</h3>
+            
             <div className="flex flex-wrap gap-2 mb-4">
               {image.tags.map((tag, index) => (
                 <span
@@ -76,11 +71,6 @@ const ImageDetail: React.FC<ImageDetailProps> = ({ image }) => {
                 <span>{image.software}</span>
               </div>
             </div>
-          </div>
-          
-          <div>
-            <h4 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-2">About the Project</h4>
-            <p className="text-sm font-mono text-white/80">{image.about}</p>
           </div>
         </div>
       </motion.div>
